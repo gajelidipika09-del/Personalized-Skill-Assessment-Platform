@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Progress Dashboard - SmartSkill</title>
+
+    <style>
+/* =====================================================
+   SMARTSKILL - PROGRESS DASHBOARD
+   ===================================================== */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f7f4fb;
+    color: #2d1745;
+}
+
+/* HEADER */
+
+.dashboard-header {
+    height: 70px;
+    padding: 0 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    border-bottom: 1px solid #eee;
+    box-sizing: border-box;
+}
+
+.dashboard-logo {
+    font-size: 26px;
+    font-weight: 800;
+    color: #6d28d9;
+}
+
+.dashboard-logo span {
+    color: #a855f7;
+}
+
+.dashboard-user {
+    color: #555;
+    font-size: 15px;
+}
+
+.dashboard-user strong {
+    color: #6d28d9;
+}
+
+.logout-btn {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    background: #6d28d9;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.logout-btn:hover {
+    background: #5b21b6;
+}
+
+/* MAIN */
+
+.progress-page {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+    padding: 50px 0 70px;
+}
+
+/* PAGE TITLE */
+
+.progress-welcome {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.dashboard-label {
+    color: #7c3aed;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.progress-welcome h1 {
+    font-size: 38px;
+    margin: 10px 0;
+}
+
+.progress-welcome p:last-child {
+    color: #777;
+    font-size: 16px;
+}
+
+/* OVERALL SCORE */
+
+.overall-score-card {
+    background: linear-gradient(135deg, #6d28d9, #a855f7);
+    color: white;
+    text-align: center;
+    border-radius: 22px;
+    padding: 35px;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 30px rgba(109, 40, 217, 0.2);
+}
+
+.overall-score-card h2 {
+    margin: 0 0 15px;
+    font-size: 21px;
+}
+
+#overallScore {
+    font-size: 60px;
+    font-weight: 800;
+    margin: 15px 0;
+}
+
+.overall-score-card p {
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* CARDS */
+
+.progress-card {
+    background: white;
+    border-radius: 18px;
+    padding: 30px;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 20px rgba(50, 20, 80, 0.08);
+    border: 1px solid #eee7f7;
+}
+
+.progress-card h2 {
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 21px;
+}
+
+/* SKILL PERFORMANCE */
+
+.performance-item {
+    margin-bottom: 20px;
+}
+
+.performance-title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.performance-title strong {
+    text-transform: capitalize;
+}
+
+.performance-title span {
+    color: #7c3aed;
+    font-weight: bold;
+}
+
+.progress-bar {
+    height: 12px;
+    width: 100%;
+    background: #eee9f5;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #7c3aed, #a855f7);
+    border-radius: 20px;
+}
+
+/* SKILL ANALYSIS */
+
+.analysis-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px;
+    margin-bottom: 12px;
+    background: #faf8fd;
+    border: 1px solid #eee7f7;
+    border-radius: 12px;
+}
+
+.analysis-item strong {
+    text-transform: capitalize;
+}
+
+.analysis-item p {
+    margin: 5px 0 0;
+    color: #777;
+}
+
+.status {
+    display: inline-block;
+    margin-left: 12px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    background: #eee5ff;
+    color: #6d28d9;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* HISTORY */
+
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px;
+    margin-bottom: 12px;
+    background: #faf8fd;
+    border: 1px solid #eee7f7;
+    border-radius: 12px;
+}
+
+.history-item strong {
+    text-transform: capitalize;
+}
+
+.history-item p {
+    margin: 6px 0 0;
+    color: #777;
+}
+
+.history-item > div:last-child {
+    text-align: right;
+}
+
+.history-item > div:last-child strong {
+    color: #7c3aed;
+    font-size: 20px;
+}
+
+/* BACK BUTTON */
+
+.progress-back {
+    text-align: center;
+    margin-top: 35px;
+}
+
+.assessment-start-btn {
+    border: none;
+    background: #6d28d9;
+    color: white;
+    padding: 13px 25px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.assessment-start-btn:hover {
+    background: #5b21b6;
+    transform: translateY(-2px);
+}
+
+/* FOOTER */
+
+.footer {
+    text-align: center;
+    padding: 25px;
+    background: white;
+    color: #777;
+    border-top: 1px solid #eee;
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .dashboard-header {
+        padding: 0 20px;
+    }
+
+    .dashboard-user {
+        display: none;
+    }
+
+    .progress-page {
+        width: 92%;
+        padding-top: 30px;
+    }
+
+    .progress-welcome h1 {
+        font-size: 30px;
+    }
+
+    #overallScore {
+        font-size: 48px;
+    }
+
+    .analysis-item,
+    .history-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .history-item > div:last-child {
+        text-align: left;
+    }
+
+    .status {
+        margin-left: 0;
+        margin-top: 5px;
+    }
+}
+
+
+</style>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="dashboard-header">
+
+        <div class="dashboard-logo">
+            Smart<span>Skill</span>
+        </div>
+
+        <div class="dashboard-user">
+            Welcome, <strong id="progressStudentName">Student</strong>
+        </div>
+
+        <button class="logout-btn" onclick="logout()">
+            Logout
+        </button>
+
+    </header>
+
+
+    <!-- MAIN -->
+    <main class="progress-page">
+
+        <!-- HEADER -->
+        <section class="progress-welcome">
+
+            <p class="dashboard-label">
+                STUDENT PERFORMANCE
+            </p>
+
+            <h1>
+                📊 Progress Dashboard
+            </h1>
+
+            <p>
+                Track your assessment performance and identify
+                areas where you can improve.
+            </p>
+
+        </section>
+
+
+        <!-- OVERALL SCORE -->
+        <section class="overall-score-card">
+
+            <h2>
+                Overall Skill Score
+            </h2>
+
+            <div id="overallScore">
+                Loading...
+            </div>
+
+            <p>
+                Based on your completed assessments
+            </p>
+
+        </section>
+
+
+        <!-- SKILL PERFORMANCE -->
+        <section class="progress-card">
+
+            <h2>
+                💻 Skill-wise Performance
+            </h2>
+
+            <div id="skillPerformance">
+                Loading...
+            </div>
+
+        </section>
+
+
+        <!-- SKILL ANALYSIS -->
+        <section class="progress-card">
+
+            <h2>
+                🔍 Skill Analysis
+            </h2>
+
+            <div id="skillAnalysis">
+                Loading...
+            </div>
+
+        </section>
+
+
+        <!-- ASSESSMENT HISTORY -->
+        <section class="progress-card">
+
+            <h2>
+                📝 Assessment History
+            </h2>
+
+            <div id="assessmentHistory">
+                Loading...
+            </div>
+
+        </section>
+
+
+        <!-- BACK BUTTON -->
+        <div class="progress-back">
+
+            <button
+                class="assessment-start-btn"
+                onclick="window.location.href='student-dashboard.html'">
+
+                ← Back to Dashboard
+
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <p>
+            © 2026 SmartSkill. All rights reserved.
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

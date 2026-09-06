@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin - Question Bank</title>
+
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+    <div class="admin-container">
+
+        <!-- ================= HEADER ================= -->
+
+        <header class="admin-header">
+
+            <div>
+                <h1>Question Bank</h1>
+                <p>Manage assessment questions</p>
+            </div>
+
+            <div class="admin-header-actions">
+
+                <span>
+                    Welcome,
+                    <strong id="adminName">Admin</strong>
+                </span>
+
+                <!-- ADD QUESTION -->
+                <button type="button"
+                        class="admin-btn"
+                        onclick="showAddQuestion()">
+                    + Add Question
+                </button>
+
+                <!-- DASHBOARD -->
+                <button type="button"
+                        class="admin-btn"
+                        onclick="window.location.href='admin-dashboard.html'">
+                    ← Dashboard
+                </button>
+
+                <!-- LOGOUT -->
+                <button type="button"
+                        class="admin-btn logout-btn"
+                        onclick="logout()">
+                    Logout
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= QUESTION BANK ================= -->
+
+        <main class="question-bank-section">
+
+            <div class="section-title">
+
+                <h2>All Questions</h2>
+
+                <p>
+                    View and manage questions available in the assessment system.
+                </p>
+
+            </div>
+
+
+            <!-- QUESTIONS WILL BE LOADED HERE -->
+
+            <div id="questionsContainer">
+
+                <p>Loading questions...</p>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <!-- ================================================= -->
+    <!--              ADD QUESTION MODAL                   -->
+    <!-- ================================================= -->
+
+    <div id="addQuestionModal" class="question-modal">
+
+        <div class="question-modal-content">
+
+            <!-- MODAL HEADER -->
+
+            <div class="modal-header">
+
+                <h2>Add New Question</h2>
+
+                <button type="button"
+                        class="close-btn"
+                        onclick="closeAddQuestion()">
+                    ×
+                </button>
+
+            </div>
+
+
+            <!-- ADD QUESTION FORM -->
+
+            <form id="addQuestionForm"
+                  onsubmit="addQuestion(event)">
+                  <input type="hidden" id="questionId" name="questionId">
+
+
+                <!-- SKILL -->
+
+                <label for="skill">
+                    Skill
+                </label>
+
+                <input type="text"
+                       id="skill"
+                       name="skill"
+                       placeholder="Example: Java"
+                       required>
+
+
+                <!-- TOPIC -->
+
+                <label for="topic">
+                    Topic
+                </label>
+
+                <input type="text"
+                       id="topic"
+                       name="topic"
+                       placeholder="Example: Collections"
+                       required>
+
+
+                <!-- DIFFICULTY -->
+
+                <label for="difficulty">
+                    Difficulty
+                </label>
+
+                <select id="difficulty"
+                        name="difficulty"
+                        required>
+
+                    <option value="">
+                        Select Difficulty
+                    </option>
+
+                    <option value="EASY">
+                        Easy
+                    </option>
+
+                    <option value="MEDIUM">
+                        Medium
+                    </option>
+
+                    <option value="HARD">
+                        Hard
+                    </option>
+
+                </select>
+
+
+                <!-- QUESTION -->
+
+                <label for="question">
+                    Question
+                </label>
+
+                <textarea id="question"
+                          name="question"
+                          rows="3"
+                          placeholder="Enter question"
+                          required></textarea>
+
+
+                <!-- OPTION A -->
+
+                <label for="optionA">
+                    Option A
+                </label>
+
+                <input type="text"
+                       id="optionA"
+                       name="optionA"
+                       placeholder="Enter option A"
+                       required>
+
+
+                <!-- OPTION B -->
+
+                <label for="optionB">
+                    Option B
+                </label>
+
+                <input type="text"
+                       id="optionB"
+                       name="optionB"
+                       placeholder="Enter option B"
+                       required>
+
+
+                <!-- OPTION C -->
+
+                <label for="optionC">
+                    Option C
+                </label>
+
+                <input type="text"
+                       id="optionC"
+                       name="optionC"
+                       placeholder="Enter option C"
+                       required>
+
+
+                <!-- OPTION D -->
+
+                <label for="optionD">
+                    Option D
+                </label>
+
+                <input type="text"
+                       id="optionD"
+                       name="optionD"
+                       placeholder="Enter option D"
+                       required>
+
+
+                <!-- CORRECT ANSWER -->
+
+                <label for="correctAnswer">
+                    Correct Answer
+                </label>
+
+                <select id="correctAnswer"
+                        name="correctAnswer"
+                        required>
+
+                    <option value="">
+                        Select Correct Answer
+                    </option>
+
+                    <option value="A">
+                        A
+                    </option>
+
+                    <option value="B">
+                        B
+                    </option>
+
+                    <option value="C">
+                        C
+                    </option>
+
+                    <option value="D">
+                        D
+                    </option>
+
+                </select>
+
+
+                <!-- EXPLANATION -->
+
+                <label for="explanation">
+                    Explanation
+                </label>
+
+                <textarea id="explanation"
+                          name="explanation"
+                          rows="3"
+                          placeholder="Enter explanation (optional)"></textarea>
+
+
+                <!-- BUTTONS -->
+
+                <div class="modal-buttons">
+
+                    <button type="submit"
+                            class="add-question-btn">
+                        Add Question
+                    </button>
+
+                    <button type="button"
+                            class="cancel-btn"
+                            onclick="closeAddQuestion()">
+                        Cancel
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================================================= -->
+    <!--              QUESTION BANK JAVASCRIPT             -->
+    <!-- ================================================= -->
+
+    <script src="admin-question-bank.js"></script>
+
+</body>
+
+</html>

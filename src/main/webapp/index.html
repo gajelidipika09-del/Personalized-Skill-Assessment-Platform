@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Skill Assessment Platform</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            <div class="logo-icon">S</div>
+            <span>Smart<span>Skill</span></span>
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#features">Features</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="nav-buttons">
+            <button class="login-btn" onclick="showLogin()">
+                Login
+            </button>
+
+            <button class="signup-btn" onclick="showRegister()">
+                Get Started
+            </button>
+        </div>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="hero-badge">
+                ✦ Personalized Learning Platform
+            </div>
+
+            <h1>
+                Assess Your Skills.
+                <span>Build Your Future.</span>
+            </h1>
+
+            <p class="hero-description">
+                Discover your strengths, identify your weak areas,
+                practice personalized questions and track your
+                learning progress with SmartSkill.
+            </p>
+
+            <div class="hero-buttons">
+
+                <button class="primary-btn" onclick="showLogin()">
+                    Start Assessment
+                    <span>→</span>
+                </button>
+
+                <button class="secondary-btn" onclick="scrollToFeatures()">
+                    Explore Platform
+                    <span>↓</span>
+                </button>
+
+            </div>
+
+            <div class="hero-trust">
+
+                <div class="trust-item">
+                    <strong>🎯</strong>
+                    <span>Personalized</span>
+                </div>
+
+                <div class="trust-item">
+                    <strong>🧠</strong>
+                    <span>Adaptive</span>
+                </div>
+
+                <div class="trust-item">
+                    <strong>📈</strong>
+                    <span>Progress Tracking</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- HERO VISUAL -->
+
+        <div class="hero-visual">
+
+            <div class="floating-circle circle-one"></div>
+            <div class="floating-circle circle-two"></div>
+
+            <div class="dashboard-card">
+
+                <div class="dashboard-top">
+
+                    <div>
+                        <small>SMART SKILL PLATFORM</small>
+                        <h3>Your Learning Journey</h3>
+                    </div>
+
+                    <div class="online-dot">
+                        <span></span>
+                        LIVE
+                    </div>
+
+                </div>
+
+
+                <!-- Main insight -->
+
+                <div class="insight-card">
+
+                    <div class="insight-icon">
+                        🎯
+                    </div>
+
+                    <div class="insight-content">
+
+                        <span>READY TO BEGIN?</span>
+
+                        <h2>
+                            Discover Your Skills
+                        </h2>
+
+                        <p>
+                            Take an assessment to understand
+                            your current skill level.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Features -->
+
+                <div class="mini-features">
+
+                    <div class="mini-feature">
+
+                        <div class="mini-icon purple">
+                            🧠
+                        </div>
+
+                        <div>
+                            <strong>Adaptive Assessment</strong>
+                            <small>Skill-based questions</small>
+                        </div>
+
+                    </div>
+
+
+                    <div class="mini-feature">
+
+                        <div class="mini-icon pink">
+                            📚
+                        </div>
+
+                        <div>
+                            <strong>Personalized Practice</strong>
+                            <small>Focus on weak topics</small>
+                        </div>
+
+                    </div>
+
+
+                    <div class="mini-feature">
+
+                        <div class="mini-icon blue">
+                            📈
+                        </div>
+
+                        <div>
+                            <strong>Progress Tracking</strong>
+                            <small>Monitor improvement</small>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Journey -->
+
+                <div class="journey-card">
+
+                    <div class="journey-heading">
+
+                        <div>
+                            <small>YOUR LEARNING JOURNEY</small>
+                            <strong>Assess → Practice → Improve</strong>
+                        </div>
+
+                        <span>3 STEPS</span>
+
+                    </div>
+
+
+                    <div class="journey-steps">
+
+                        <div class="journey-step active">
+
+                            <div class="step-circle">
+                                01
+                            </div>
+
+                            <div>
+                                <strong>Assess</strong>
+                                <small>Test skills</small>
+                            </div>
+
+                        </div>
+
+
+                        <div class="journey-line"></div>
+
+
+                        <div class="journey-step">
+
+                            <div class="step-circle">
+                                02
+                            </div>
+
+                            <div>
+                                <strong>Practice</strong>
+                                <small>Improve weak areas</small>
+                            </div>
+
+                        </div>
+
+
+                        <div class="journey-line"></div>
+
+
+                        <div class="journey-step">
+
+                            <div class="step-circle">
+                                03
+                            </div>
+
+                            <div>
+                                <strong>Improve</strong>
+                                <small>Track progress</small>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Privacy notice -->
+
+                <div class="private-card">
+
+                    <div class="private-icon">
+                        🔐
+                    </div>
+
+                    <div>
+                        <strong>Your progress is private</strong>
+                        <p>
+                            Login to access your personal dashboard.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FEATURES ================= -->
+
+    <section class="features-section" id="features">
+
+        <div class="section-heading">
+
+            <span class="section-tag">
+                WHAT WE OFFER
+            </span>
+
+            <h2>
+                Everything You Need to
+                <span>Grow Your Skills</span>
+            </h2>
+
+            <p>
+                SmartSkill combines assessment, personalized
+                practice and progress tracking into one platform.
+            </p>
+
+        </div>
+
+
+        <div class="features-grid">
+
+            <div class="feature-card">
+
+                <div class="large-icon purple-bg">
+                    🎯
+                </div>
+
+                <h3>Skill Assessment</h3>
+
+                <p>
+                    Test your knowledge with skill and
+                    topic-based assessments.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="large-icon pink-bg">
+                    🧠
+                </div>
+
+                <h3>Personalized Practice</h3>
+
+                <p>
+                    Practice questions based on your
+                    weak areas and performance.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="large-icon blue-bg">
+                    📊
+                </div>
+
+                <h3>Skill Analysis</h3>
+
+                <p>
+                    Understand your strengths and
+                    identify topics that need practice.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="large-icon green-bg">
+                    📈
+                </div>
+
+                <h3>Progress Tracking</h3>
+
+                <p>
+                    Track your assessment history and
+                    improvement over time.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= HOW IT WORKS ================= -->
+
+    <section class="how-section" id="about">
+
+        <div class="how-content">
+
+            <span class="section-tag">
+                HOW IT WORKS
+            </span>
+
+            <h2>
+                Your Journey From
+                <span>Assessment to Improvement</span>
+            </h2>
+
+            <p>
+                Our platform follows a simple learning cycle
+                designed to help you continuously improve.
+            </p>
+
+
+            <div class="how-list">
+
+                <div class="how-item">
+
+                    <div class="how-number">
+                        01
+                    </div>
+
+                    <div>
+                        <h3>Take an Assessment</h3>
+
+                        <p>
+                            Answer questions based on your
+                            selected skill, topic and difficulty.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="how-item">
+
+                    <div class="how-number">
+                        02
+                    </div>
+
+                    <div>
+                        <h3>Identify Weak Areas</h3>
+
+                        <p>
+                            The system analyzes your results
+                            and identifies topics that need attention.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="how-item">
+
+                    <div class="how-number">
+                        03
+                    </div>
+
+                    <div>
+                        <h3>Practice & Improve</h3>
+
+                        <p>
+                            Practice personalized questions
+                            and track your improvement.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="journey-visual">
+
+            <div class="journey-glow"></div>
+
+            <div class="journey-box">
+
+                <div class="journey-box-header">
+                    <span>SMART LEARNING</span>
+                    <span>✦</span>
+                </div>
+
+                <div class="big-cycle">
+
+                    <div class="cycle-item top">
+                        <span>🎯</span>
+                        Assess
+                    </div>
+
+                    <div class="cycle-item right">
+                        <span>📚</span>
+                        Practice
+                    </div>
+
+                    <div class="cycle-item bottom">
+                        <span>📈</span>
+                        Improve
+                    </div>
+
+                    <div class="cycle-center">
+                        ✦
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CTA ================= -->
+
+    <section class="cta-section" id="contact">
+
+        <div class="cta-box">
+
+            <div class="cta-content">
+
+                <span class="section-tag">
+                    START YOUR JOURNEY
+                </span>
+
+                <h2>
+                    Ready to Discover
+                    <span>Your Potential?</span>
+                </h2>
+
+                <p>
+                    Create your account and start your
+                    personalized skill assessment today.
+                </p>
+
+                <button class="cta-btn" onclick="showRegister()">
+                    Create Free Account
+                    <span>→</span>
+                </button>
+
+            </div>
+
+            <div class="cta-decoration">
+                ✦
+            </div>
+
+        </div>
+
+    </section>
+
+
+    
+
+	<!-- ================= FOOTER ================= -->
+	<footer class="site-footer">
+
+	    <div class="footer-container">
+
+	        <!-- Brand -->
+	        <div class="footer-brand">
+
+	            <div class="footer-logo">
+	                <div class="footer-logo-icon">✦</div>
+
+	                <span>
+	                    Smart<span>Skill</span>
+	                </span>
+	            </div>
+
+	            <p>
+	                Personalized skill assessment and practice platform
+	                built to help you learn smarter, track your progress
+	                and reach your goals.
+	            </p>
+
+	        </div>
+
+
+	        <!-- Platform -->
+	        <div class="footer-column">
+
+	            <h3>Platform</h3>
+
+	            <a href="#features">Features</a>
+	            <a href="#about">About</a>
+	            <a href="#login">Login</a>
+	            <a href="#register">Create Account</a>
+
+	        </div>
+
+
+	        <!-- Learning -->
+	        <div class="footer-column">
+
+	            <h3>Learning</h3>
+
+	            <a href="#assessment">Assessments</a>
+	            <a href="#practice">Practice</a>
+	            <a href="#progress">Progress</a>
+	            <a href="#recommendations">Recommendations</a>
+
+	        </div>
+
+
+	        <!-- Contact -->
+	        <div class="footer-column">
+
+	            <h3>Contact</h3>
+
+	            <a href="#help">Help Center</a>
+	            <a href="#support">Support</a>
+	            <a href="#feedback">Feedback</a>
+	            <a href="#contact">Email Us</a>
+	            <a href="mailto:support@smartskill.com">
+	                support@smartskill.com
+	            </a>
+
+	        </div>
+
+	    </div>
+
+
+	    <!-- Footer Bottom -->
+	    <div class="footer-bottom">
+
+	        <p>
+	            © 2026 SmartSkill. All rights reserved.
+	        </p>
+
+	        <div class="footer-legal">
+
+	            <a href="#privacy">Privacy Policy</a>
+
+	            <span>|</span>
+
+	            <a href="#terms">Terms of Service</a>
+
+	        </div>
+
+	    </div>
+
+	</footer>
+<!-- ================= LOGIN POPUP ================= -->
+
+<div id="loginSection" class="login-modal" hidden>
+
+    <div class="login-overlay" onclick="closeLogin()"></div>
+
+    <div class="login-card">
+
+        <button type="button" class="close-login" onclick="closeLogin()">
+            ×
+        </button>
+
+        <div class="login-header">
+
+            <div class="login-icon">
+                ✦
+            </div>
+
+            <span class="welcome-text">WELCOME BACK</span>
+
+            <h2>
+                Login to <span>SmartSkill</span>
+            </h2>
+
+            <p>
+                Access your personalized skill dashboard.
+            </p>
+
+        </div>
+
+        <div class="login-form">
+
+            <div class="form-group">
+
+                <label for="loginEmail">
+                    Email
+                </label>
+
+                <input
+                    type="text"
+                    id="loginEmail"
+                    placeholder="Enter your email"
+                >
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="loginPassword">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="Enter your password"
+                >
+
+            </div>
+
+            <button
+                type="button"
+                class="login-submit"
+                onclick="login()"
+            >
+                Login
+            </button>
+
+            <p id="loginMessage" class="login-message"></p>
+
+        </div>
+
+    </div>
+    </div>
+    
+    <!-- REGISTER MODAL -->
+<section id="registerSection" class="login-modal" hidden="hidden">
+
+    <div class="login-overlay" onclick="closeRegister()"></div>
+
+    <div class="login-card">
+
+        <button class="close-login" onclick="closeRegister()">×</button>
+
+        <div class="login-header">
+
+            <div class="login-icon">✦</div>
+
+            <span class="welcome-text">JOIN SMARTSKILL</span>
+
+            <h2>Create <span>Account</span></h2>
+
+            <p>Start your personalized skill journey today.</p>
+
+        </div>
+
+        <div class="form-group">
+
+            <label for="registerName">Full Name</label>
+
+            <input
+                type="text"
+                id="registerName"
+                placeholder="Enter your full name">
+
+        </div>
+
+        <div class="form-group">
+
+            <label for="registerEmail">Email</label>
+
+            <input
+                type="email"
+                id="registerEmail"
+                placeholder="Enter your email">
+
+        </div>
+
+        <div class="form-group">
+
+            <label for="registerPassword">Password</label>
+
+            <input
+                type="password"
+                id="registerPassword"
+                placeholder="Create a password">
+
+        </div>
+
+        <button class="login-submit" onclick="register()">
+            Create Account
+        </button>
+
+        <p id="registerMessage" class="login-message"></p>
+
+    </div>
+
+</section>
+    <!-- Your existing JavaScript -->
+    <script src="script.js"></script>
+
+    <script>
+
+        function scrollToFeatures() {
+            document
+                .getElementById("features")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+        }
+
+    </script>
+
+</body>
+
+</html>

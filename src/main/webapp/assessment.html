@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>SmartSkill - Assessment</title>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Main JavaScript -->
+    <script src="script.js" defer></script>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================================
+         NAVBAR
+    ================================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            Smart<span>Skill</span>
+        </div>
+
+        <nav>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="student-dashboard.html">
+                Dashboard
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- ================================
+         MAIN ASSESSMENT PAGE
+    ================================= -->
+
+    <main class="assessment-page">
+
+
+        <!-- ================================
+             ASSESSMENT HERO
+        ================================= -->
+
+        <section class="assessment-hero">
+
+            <div class="assessment-badge">
+                SMARTSKILL ASSESSMENT
+            </div>
+
+            <h1>
+                Test Your
+                <span>Skills</span>
+            </h1>
+
+            <p>
+                Take a personalized assessment and discover
+                where you stand. Your results will help SmartSkill
+                recommend what you should practice next.
+            </p>
+
+        </section>
+
+
+
+        <!-- ================================
+             ASSESSMENT SETUP
+        ================================= -->
+
+        <section
+            id="assessmentSetup"
+            class="assessment-setup-card">
+
+
+            <!-- SETUP HEADER -->
+
+            <div class="setup-header">
+
+                <div class="setup-icon">
+                    📝
+                </div>
+
+                <div>
+
+                    <h2>
+                        Assessment Setup
+                    </h2>
+
+                    <p>
+                        Choose your assessment preferences
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FORM -->
+
+            <div class="assessment-form">
+
+
+                <!-- SKILL -->
+
+                <div class="assessment-input">
+
+                    <label for="assessmentSkill">
+                        Skill
+                    </label>
+
+                    <input
+                        type="text"
+                        id="assessmentSkill"
+                        placeholder="e.g. Java"
+                        autocomplete="off">
+
+                </div>
+
+
+
+                <!-- TOPIC -->
+
+                <div class="assessment-input">
+
+                    <label for="assessmentTopic">
+                        Topic
+                    </label>
+
+                    <input
+                        type="text"
+                        id="assessmentTopic"
+                        placeholder="e.g. Collections"
+                        autocomplete="off">
+
+                </div>
+
+
+
+                <!-- DIFFICULTY -->
+
+                <div class="assessment-input">
+
+                    <label for="assessmentDifficulty">
+                        Difficulty
+                    </label>
+
+                    <select id="assessmentDifficulty">
+
+                        <option value="">
+                            Select difficulty
+                        </option>
+
+                        <option value="Easy">
+                            Easy
+                        </option>
+
+                        <option value="Medium">
+                            Medium
+                        </option>
+
+                        <option value="Hard">
+                            Hard
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- NUMBER OF QUESTIONS -->
+
+                <div class="assessment-input">
+
+                    <label for="questionCount">
+                        Questions
+                    </label>
+
+                    <input
+                        type="number"
+                        id="questionCount"
+                        min="1"
+                        max="20"
+                        value="5">
+
+                </div>
+
+            </div>
+
+
+
+            <!-- INFORMATION BOX -->
+
+            <div class="assessment-info">
+
+                <span class="info-icon">
+                    ⏱
+                </span>
+
+                <div>
+
+                    <strong>
+                        Personalized Assessment
+                    </strong>
+
+                    <p>
+                        Questions will be selected according to
+                        your chosen skill, topic and difficulty.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- MESSAGE -->
+
+            <p
+                id="assessmentMessage"
+                class="assessment-message">
+            </p>
+
+
+
+            <!-- START BUTTON -->
+
+            <button
+                type="button"
+                class="assessment-start-btn"
+                onclick="loadAssessment()">
+
+                Start Assessment
+
+                <span>
+                    →
+                </span>
+
+            </button>
+
+
+
+            <!-- BACK BUTTON -->
+
+            <button
+                type="button"
+                class="back-dashboard-btn"
+                onclick="window.location.href='student-dashboard.html'">
+
+                ← Back to Dashboard
+
+            </button>
+
+
+        </section>
+
+
+
+        <!-- ================================
+             QUESTIONS SECTION
+        ================================= -->
+
+        <section
+            id="questionsSection"
+            class="questions-section"
+            style="display: none;">
+
+
+            <!-- QUESTION HEADER -->
+
+            <div class="question-top">
+
+                <span id="questionNumber">
+                    Question 1
+                </span>
+
+                <span id="questionProgress">
+                    1 / 5
+                </span>
+
+            </div>
+
+
+
+            <!-- QUESTIONS WILL BE INSERTED HERE -->
+
+            <div id="questionsContainer">
+
+            </div>
+
+
+
+            <!-- NEXT QUESTION -->
+
+            <button
+                type="button"
+                id="nextQuestionBtn"
+                class="assessment-start-btn"
+                onclick="nextQuestion()">
+
+                Next Question
+                →
+
+            </button>
+
+
+        </section>
+
+
+
+        <!-- ================================
+             RESULT SECTION
+        ================================= -->
+
+        <section
+            id="resultSection"
+            class="assessment-result"
+            style="display: none;">
+
+
+            <!-- RESULT ICON -->
+
+            <div class="result-icon">
+                🎉
+            </div>
+
+
+
+            <!-- BADGE -->
+
+            <div class="assessment-badge">
+                ASSESSMENT COMPLETED
+            </div>
+
+
+
+            <!-- RESULT TITLE -->
+
+            <h2>
+                Your Assessment Result
+            </h2>
+
+
+
+            <!-- RESULT DATA -->
+
+            <div id="resultContent">
+
+            </div>
+
+
+
+            <!-- DASHBOARD BUTTON -->
+
+            <button
+                type="button"
+                class="assessment-start-btn"
+                onclick="window.location.href='student-dashboard.html'">
+
+                Back to Dashboard
+
+            </button>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ================================
+         FOOTER
+    ================================= -->
+
+    <footer class="footer">
+
+        <p>
+            © 2026 SmartSkill. All rights reserved.
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>

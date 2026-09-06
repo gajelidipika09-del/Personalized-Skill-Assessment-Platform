@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Dashboard - SmartSkill</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="dashboard-header">
+
+        <div class="dashboard-logo">
+            Smart<span>Skill</span>
+        </div>
+
+        <div class="dashboard-user">
+            Welcome, <strong id="studentName">Student</strong>
+        </div>
+
+        <button class="logout-btn" onclick="logout()">
+            Logout
+        </button>
+
+    </header>
+
+
+    <main class="student-dashboard">
+
+        <section class="dashboard-welcome">
+
+            <p class="dashboard-label">
+                STUDENT DASHBOARD
+            </p>
+
+            <h1>
+                Welcome back,
+                <span id="welcomeStudentName">Student</span>! 👋
+            </h1>
+
+            <p>
+                Track your skills, practice smarter, and improve your performance.
+            </p>
+
+        </section>
+        <section class="streak-section">
+
+    <div class="streak-card">
+        <div class="streak-icon">🔥</div>
+        <div>
+            <p class="streak-label">CURRENT STREAK</p>
+            <h2>
+                <span id="currentStreak">0</span> Days
+            </h2>
+            <p class="streak-description">
+                Keep learning every day!
+            </p>
+        </div>
+    </div>
+
+    <div class="streak-card">
+        <div class="streak-icon">🏆</div>
+        <div>
+            <p class="streak-label">LONGEST STREAK</p>
+            <h2>
+                <span id="longestStreak">0</span> Days
+            </h2>
+            <p class="streak-description">
+                Your best learning streak.
+            </p>
+        </div>
+    </div>
+
+</section>
+
+        <section class="dashboard-cards">
+
+            <div class="dashboard-card">
+
+                <div class="card-icon">📝</div>
+
+                <h2>Start Assessment</h2>
+
+                <p>
+                    Test your skills with personalized assessments.
+                </p>
+
+                <button onclick="startAssessment()">
+                    Start Assessment
+                </button>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <div class="card-icon">🎯</div>
+
+                <h2>Personalized Practice</h2>
+
+                <p>
+                    Practice questions based on your skill level.
+                </p>
+
+                <button onclick="startPractice()">
+                     🎯 Start Practice
+                 </button>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <div class="card-icon">📊</div>
+
+                <h2>View Progress</h2>
+
+                <p>
+                    See your assessment scores and progress.
+                </p>
+
+                <button onclick="viewProgress()">
+                    View Progress
+                </button>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <div class="card-icon">🔍</div>
+
+                <h2>Skill Analysis</h2>
+
+                <p>
+                    Identify your strong and weak areas.
+                </p>
+
+                <button onclick="viewSkillAnalysis()">
+                    Analyze Skills
+                </button>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <div class="card-icon">💡</div>
+
+                <h2>Recommendations</h2>
+
+                <p>
+                    Get personalized recommendations for improvement.
+                </p>
+
+                <button onclick="viewRecommendations()">
+                    View Recommendations
+                </button>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <div class="card-icon">📈</div>
+
+                <h2>Improvement</h2>
+
+                <p>
+                    Compare your performance and track improvement.
+                </p>
+
+                <button onclick="viewImprovement()">
+                    View Improvement
+                </button>
+
+            </div>
+
+        </section>
+        
+        
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

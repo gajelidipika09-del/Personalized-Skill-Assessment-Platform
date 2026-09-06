@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Recommendations - SmartSkill</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f7f4fb;
+            color: #2d1745;
+        }
+
+        /* HEADER */
+
+        .dashboard-header {
+            height: 70px;
+            padding: 0 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: white;
+            border-bottom: 1px solid #eee;
+        }
+
+        .dashboard-logo {
+            font-size: 26px;
+            font-weight: 800;
+            color: #6d28d9;
+        }
+
+        .dashboard-logo span {
+            color: #a855f7;
+        }
+
+        .dashboard-user {
+            color: #555;
+        }
+
+        .dashboard-user strong {
+            color: #6d28d9;
+        }
+
+        .logout-btn {
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            background: #6d28d9;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* MAIN */
+
+        .recommendation-page {
+            width: 90%;
+            max-width: 1050px;
+            margin: auto;
+            padding: 55px 0 70px;
+        }
+
+        /* TITLE */
+
+        .recommendation-welcome {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .dashboard-label {
+            color: #7c3aed;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .recommendation-welcome h1 {
+            font-size: 38px;
+            margin: 10px 0;
+        }
+
+        .recommendation-welcome p {
+            color: #777;
+            font-size: 16px;
+        }
+
+        /* RECOMMENDATION CARD */
+
+        .recommendation-card {
+            background: white;
+            border-radius: 20px;
+            padding: 28px;
+            margin-bottom: 20px;
+            border: 1px solid #eee7f7;
+            box-shadow: 0 6px 20px rgba(50, 20, 80, 0.08);
+        }
+
+        .recommendation-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .recommendation-topic {
+            font-size: 21px;
+            font-weight: 700;
+            text-transform: capitalize;
+        }
+
+        .recommendation-skill {
+            color: #777;
+            margin-top: 6px;
+            text-transform: capitalize;
+        }
+
+        .recommendation-score {
+            font-size: 25px;
+            font-weight: 800;
+            color: #7c3aed;
+        }
+
+        /* MESSAGE */
+
+        .recommendation-message {
+            margin-top: 22px;
+            padding: 16px;
+            border-radius: 12px;
+            background: #faf8fd;
+            color: #555;
+            font-weight: 600;
+        }
+
+        /* BUTTON */
+
+        .practice-btn {
+            margin-top: 18px;
+            border: none;
+            padding: 12px 22px;
+            border-radius: 9px;
+            background: #6d28d9;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .practice-btn:hover {
+            background: #5b21b6;
+        }
+
+        /* EMPTY */
+
+        .no-recommendations {
+            background: white;
+            padding: 40px;
+            text-align: center;
+            border-radius: 18px;
+            color: #777;
+        }
+
+        /* BACK */
+
+        .recommendation-back {
+            text-align: center;
+            margin-top: 35px;
+        }
+
+        .back-btn {
+            border: none;
+            padding: 13px 25px;
+            border-radius: 10px;
+            background: #6d28d9;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            .dashboard-header {
+                padding: 0 20px;
+            }
+
+            .dashboard-user {
+                display: none;
+            }
+
+            .recommendation-page {
+                width: 92%;
+            }
+
+            .recommendation-welcome h1 {
+                font-size: 30px;
+            }
+
+            .recommendation-top {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .recommendation-score {
+                font-size: 22px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header class="dashboard-header">
+
+        <div class="dashboard-logo">
+            Smart<span>Skill</span>
+        </div>
+
+        <div class="dashboard-user">
+
+            Welcome,
+            <strong id="recommendationStudentName">
+                Student
+            </strong>
+
+        </div>
+
+        <button class="logout-btn"
+                onclick="logout()">
+
+            Logout
+
+        </button>
+
+    </header>
+
+
+    <!-- MAIN -->
+
+    <main class="recommendation-page">
+
+        <section class="recommendation-welcome">
+
+            <p class="dashboard-label">
+                PERSONALIZED LEARNING
+            </p>
+
+            <h1>
+                💡 Recommendations
+            </h1>
+
+            <p>
+                Improve your skills with recommendations
+                based on your assessment performance.
+            </p>
+
+        </section>
+
+
+        <!-- RECOMMENDATIONS -->
+
+        <section id="recommendationsContainer">
+
+            <div class="no-recommendations">
+                Loading recommendations...
+            </div>
+
+        </section>
+
+
+        <!-- BACK -->
+
+        <div class="recommendation-back">
+
+            <button class="back-btn"
+                    onclick="window.location.href='student-dashboard.html'">
+
+                ← Back to Dashboard
+
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

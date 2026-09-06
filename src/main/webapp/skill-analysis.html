@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Skill Analysis - SmartSkill</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+<header class="dashboard-header">
+
+    <div class="dashboard-logo">
+        Smart<span>Skill</span>
+    </div>
+
+    <div class="dashboard-user">
+        Welcome, <strong id="analysisStudentName">Student</strong>
+    </div>
+
+    <button class="logout-btn" onclick="logout()">
+        Logout
+    </button>
+
+</header>
+
+
+<main class="skill-analysis-page">
+
+    <section class="progress-welcome">
+
+        <p class="dashboard-label">
+            PERFORMANCE ANALYSIS
+        </p>
+
+        <h1>
+            🔍 Skill Analysis
+        </h1>
+
+        <p>
+            Identify your strong and weak areas and understand your performance.
+        </p>
+
+    </section>
+
+
+    <section class="skill-analysis-section">
+
+    <h2>📊 Your Skill Performance</h2>
+
+    <div id="skillAnalysis" class="skill-analysis-container"></div>
+
+</section>
+
+
+    <div class="skill-analysis-back">
+
+        <button
+            class="assessment-start-btn"
+            onclick="window.location.href='student-dashboard.html'">
+
+            ← Back to Dashboard
+
+        </button>
+
+    </div>
+
+</main>
+
+
+<footer class="footer">
+
+    <p>
+        © 2026 SmartSkill. All rights reserved.
+    </p>
+
+</footer>
+
+</body>
+</html>

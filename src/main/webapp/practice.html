@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>Personalized Practice - SmartSkill</title>
+
+<link rel="stylesheet" href="style.css">
+
+
+</head>
+
+<body>
+
+
+<!-- HEADER -->
+<header class="dashboard-header">
+
+    <div class="dashboard-logo">
+        Smart<span>Skill</span>
+    </div>
+
+    <div class="dashboard-user">
+        Personalized Practice
+    </div>
+
+    <button class="logout-btn" onclick="logout()">
+        Logout
+    </button>
+
+</header>
+
+
+<!-- MAIN -->
+<main class="practice-page">
+
+    <!-- HERO -->
+    <section class="practice-welcome">
+
+        <p class="dashboard-label">
+            PERSONALIZED LEARNING
+        </p>
+
+        <h1>
+            🎯 Personalized Practice
+        </h1>
+
+        <p>
+            Strengthen your skills with questions selected
+            based on your assessment performance.
+        </p>
+
+    </section>
+
+
+    <!-- PRACTICE INFO -->
+    <div class="practice-info">
+
+    <div class="practice-info-card">
+        <div class="practice-info-icon">💻</div>
+        <div>
+            <span>Skill</span>
+            <strong id="practiceSkill">Java</strong>
+        </div>
+    </div>
+
+    <div class="practice-info-card">
+        <div class="practice-info-icon">📚</div>
+        <div>
+            <span>Topic</span>
+            <strong id="practiceTopic">Collections</strong>
+        </div>
+    </div>
+
+    <div class="practice-info-card">
+        <div class="practice-info-icon">📝</div>
+        <div>
+            <span>Questions</span>
+            <strong id="practiceCount">5</strong>
+        </div>
+    </div>
+
+</div>
+
+    <!-- QUESTIONS -->
+    <section class="practice-questions-section">
+
+        <div class="practice-section-title">
+
+            <div>
+                <h2>Practice Questions</h2>
+
+                <p>
+                    Select the best answer for each question.
+                </p>
+            </div>
+
+            <div class="question-badge">
+                🎯 Practice Mode
+            </div>
+
+        </div>
+        
+        
+
+        <div id="questionsContainer">
+    <p>Loading questions...</p>
+</div>
+
+<div id="practiceMessage" class="practice-message"></div>
+
+<div class="practice-submit-container">
+    <button
+        id="submitPracticeBtn"
+        onclick="submitPractice()">
+        Submit Practice
+    </button>
+</div>
+
+
+        
+    </section>
+
+<!-- BACK -->
+
+<div class="practice-back">
+    <button
+        class="practice-back-btn"
+        onclick="window.location.href='student-dashboard.html'">
+        ← Back to Dashboard
+    </button>
+</div>
+
+    
+    
+
+</main>
+
+
+<script src="practice.js"></script>
+
+
+</body>
+</html>

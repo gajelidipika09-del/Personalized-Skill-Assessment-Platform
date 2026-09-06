@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Improvement - SmartSkill</title>
+
+    <link rel="stylesheet" href="style.css?v=2">
+    <script src="script.js?v=2" defer></script>
+</head>
+
+<body class="improvement-body">
+
+<header class="dashboard-header">
+
+    <div class="dashboard-logo">
+        Smart<span>Skill</span>
+    </div>
+
+    <div class="dashboard-user">
+        Welcome,
+        <strong id="improvementStudentName">Student</strong>
+    </div>
+
+    <button class="logout-btn" onclick="logout()">
+        Logout
+    </button>
+
+</header>
+
+
+<main class="improvement-page">
+
+    <!-- PAGE INTRO -->
+
+    <section class="progress-welcome">
+
+        <p class="dashboard-label">
+            PERFORMANCE TRACKING
+        </p>
+
+        <h1>
+            📈 Improvement
+        </h1>
+
+        <p>
+            Track your skill improvement and see how your performance changes over time.
+        </p>
+
+    </section>
+
+
+    <!-- OVERALL IMPROVEMENT -->
+
+    <section class="improvement-card">
+
+        <h2>
+            📊 Your Overall Improvement
+        </h2>
+
+        <div class="overall-improvement">
+
+            <div class="improvement-stat">
+                <span class="stat-label">
+                    Overall Score
+                </span>
+
+                <strong id="currentOverallScore">
+                    0%
+                </strong>
+            </div>
+
+            <div class="improvement-stat">
+
+                <span class="stat-label">
+                    Performance
+                </span>
+
+                <strong id="overallImprovementStatus">
+                    -
+                </strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SKILL IMPROVEMENT -->
+
+    <section class="improvement-card">
+
+        <h2>
+            🎯 Skill-wise Improvement
+        </h2>
+
+        <div id="improvementContainer"
+             class="improvement-container">
+
+            <div class="loading-message">
+                Loading improvement data...
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- BACK BUTTON -->
+
+    <div class="improvement-back">
+
+        <button
+            class="assessment-start-btn"
+            onclick="window.location.href='student-dashboard.html'">
+
+            ← Back to Dashboard
+
+        </button>
+
+    </div>
+
+</main>
+
+
+<footer class="footer">
+
+    <p>
+        © 2026 SmartSkill. All rights reserved.
+    </p>
+
+</footer>
+
+</body>
+
+</html>

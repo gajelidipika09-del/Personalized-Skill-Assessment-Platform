@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard</title>
+
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+<div class="admin-container">
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="admin-header">
+
+        <div>
+
+            <p class="dashboard-label">
+                SMARTSKILL ADMIN
+            </p>
+
+            <h1>
+                Admin Dashboard
+            </h1>
+
+            <p>
+                Manage and monitor the Skill Assessment Platform
+            </p>
+
+        </div>
+
+        <button class="admin-logout-btn"
+                onclick="logoutAdmin()">
+
+            🚪 Logout
+
+        </button>
+
+    </header>
+
+
+    <!-- ================= PLATFORM OVERVIEW ================= -->
+
+    <section class="analytics-section">
+
+        <div class="analytics-header">
+
+            <div>
+
+                <h2>
+                    Platform Overview
+                </h2>
+
+                <p>
+                    Real-time statistics from your database
+                </p>
+
+            </div>
+
+            <div class="analytics-header-actions">
+
+                <span id="lastUpdated"
+                      class="last-updated">
+
+                    Not updated yet
+
+                </span>
+
+                <button class="refresh-btn"
+                        id="refreshButton"
+                        onclick="loadAnalytics()">
+
+                    🔄 Refresh
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div id="analyticsMessage"
+             class="analytics-message">
+
+            Loading analytics...
+
+        </div>
+
+
+        <!-- ================= SUMMARY CARDS ================= -->
+
+        <div class="analytics-grid">
+
+
+            <!-- TOTAL STUDENTS -->
+
+            <div class="analytics-card">
+
+                <div class="analytics-icon">
+                    👨‍🎓
+                </div>
+
+                <div>
+
+                    <p>
+                        Total Students
+                    </p>
+
+                    <h3 id="totalStudents">
+                        0
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <!-- TOTAL ASSESSMENTS -->
+
+            <div class="analytics-card">
+
+                <div class="analytics-icon">
+                    📝
+                </div>
+
+                <div>
+
+                    <p>
+                        Total Assessments
+                    </p>
+
+                    <h3 id="totalAssessments">
+                        0
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRACTICE -->
+
+            <div class="analytics-card">
+
+                <div class="analytics-icon">
+                    🎯
+                </div>
+
+                <div>
+
+                    <p>
+                        Practice Attempts
+                    </p>
+
+                    <h3 id="totalPractice">
+                        0
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUESTIONS -->
+
+            <div class="analytics-card">
+
+                <div class="analytics-icon">
+                    📚
+                </div>
+
+                <div>
+
+                    <p>
+                        Total Questions
+                    </p>
+
+                    <h3 id="totalQuestions">
+                        0
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <!-- AVERAGE -->
+
+            <div class="analytics-card">
+
+                <div class="analytics-icon">
+                    📊
+                </div>
+
+                <div>
+
+                    <p>
+                        Average Assessment Score
+                    </p>
+
+                    <h3 id="averageScore">
+                        0%
+                    </h3>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ADMIN ACTIONS ================= -->
+
+    <section class="admin-actions-section">
+
+
+        <!-- QUESTION BANK -->
+
+        <div class="admin-action-card"
+             onclick="openQuestionBank()">
+
+            <div class="admin-action-icon">
+                📚
+            </div>
+
+            <h2>
+                Question Bank
+            </h2>
+
+            <p>
+                Add, edit and delete assessment questions.
+            </p>
+
+            <span class="action-link">
+                Open Question Bank →
+            </span>
+
+        </div>
+
+
+        <!-- SKILL PERFORMANCE -->
+
+        <div class="admin-action-card"
+             onclick="showSkillPerformance()">
+
+            <div class="admin-action-icon">
+                📈
+            </div>
+
+            <h2>
+                Skill Performance
+            </h2>
+
+            <p>
+                View student performance by skill and topic.
+            </p>
+
+            <span class="action-link">
+                View Performance →
+            </span>
+
+        </div>
+
+
+        <!-- WEAK TOPICS -->
+
+        <div class="admin-action-card"
+             onclick="showWeakTopics()">
+
+            <div class="admin-action-icon">
+                🎯
+            </div>
+
+            <h2>
+                Weak Topics
+            </h2>
+
+            <p>
+                Identify topics where students need more practice.
+            </p>
+
+            <span class="action-link">
+                View Weak Topics →
+            </span>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- ===================================================== -->
+<!-- SKILL PERFORMANCE POPUP -->
+<!-- ===================================================== -->
+
+<div id="performanceModal"
+     class="admin-popup"
+     onclick="closePopup(event)">
+
+    <div class="admin-popup-content"
+         onclick="event.stopPropagation()">
+
+        <div class="popup-header">
+
+            <div>
+
+                <span class="popup-label">
+                    ANALYTICS
+                </span>
+
+                <h2>
+                    📈 Skill Performance
+                </h2>
+
+                <p>
+                    Average assessment score by skill and topic
+                </p>
+
+            </div>
+
+            <button class="popup-close"
+                    onclick="closePerformanceModal()">
+
+                ×
+
+            </button>
+
+        </div>
+
+
+        <!-- SEARCH -->
+
+        <div class="performance-controls">
+
+            <div class="search-box">
+
+                <span>
+                    🔍
+                </span>
+
+                <input type="text"
+                       id="skillSearch"
+                       placeholder="Search skill or topic..."
+                       oninput="filterSkillPerformance()">
+
+            </div>
+
+
+            <select id="statusFilter"
+                    onchange="filterSkillPerformance()">
+
+                <option value="ALL">
+                    All Status
+                </option>
+
+                <option value="WEAK">
+                    🔴 Weak
+                </option>
+
+                <option value="NEEDS PRACTICE">
+                    🟡 Needs Practice
+                </option>
+
+                <option value="GOOD">
+                    🟢 Good
+                </option>
+
+            </select>
+
+
+            <button class="reset-filter-btn"
+                    onclick="resetFilters()">
+
+                Reset
+
+            </button>
+
+        </div>
+
+
+        <div id="skillPerformanceContainer">
+
+            <p class="loading">
+                Loading skill performance...
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ===================================================== -->
+<!-- WEAK TOPICS POPUP -->
+<!-- ===================================================== -->
+
+<div id="weakTopicsModal"
+     class="admin-popup"
+     onclick="closeWeakPopup(event)">
+
+    <div class="admin-popup-content"
+         onclick="event.stopPropagation()">
+
+        <div class="popup-header">
+
+            <div>
+
+                <span class="popup-label">
+                    ANALYTICS
+                </span>
+
+                <h2>
+                    🎯 Weak Topics
+                </h2>
+
+                <p>
+                    Topics with an average score of 75% or below
+                </p>
+
+            </div>
+
+            <button class="popup-close"
+                    onclick="closeWeakTopicsModal()">
+
+                ×
+
+            </button>
+
+        </div>
+
+
+        <div id="weakTopicsContainer">
+
+            <p class="loading">
+                Loading weak topics...
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+
+/* =====================================================
+   GLOBAL DATA
+===================================================== */
+
+let allSkillPerformance = [];
+let allWeakTopics = [];
+
+
+/* =====================================================
+   OPEN QUESTION BANK
+===================================================== */
+
+function openQuestionBank() {
+
+    window.location.href = "admin-question-bank.html";
+
+}
+
+
+/* =====================================================
+   LOAD ANALYTICS
+===================================================== */
+
+async function loadAnalytics() {
+
+    const message =
+        document.getElementById("analyticsMessage");
+
+    const refreshButton =
+        document.getElementById("refreshButton");
+
+
+    try {
+
+        message.textContent =
+            "Loading analytics...";
+
+        refreshButton.disabled = true;
+
+
+        const response =
+            await fetch("./api/admin/analytics");
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "HTTP error: " + response.status
+            );
+
+        }
+
+
+        const data =
+            await response.json();
+
+
+        if (!data.success) {
+
+            throw new Error(
+                data.message ||
+                "Unable to load analytics"
+            );
+
+        }
+
+
+        /* ================================
+           SUMMARY CARDS
+        ================================= */
+
+        document.getElementById("totalStudents")
+            .textContent =
+            data.totalStudents;
+
+
+        document.getElementById("totalAssessments")
+            .textContent =
+            data.totalAssessments;
+
+
+        document.getElementById("totalPractice")
+            .textContent =
+            data.totalPractice;
+
+
+        document.getElementById("totalQuestions")
+            .textContent =
+            data.totalQuestions;
+
+
+        document.getElementById("averageScore")
+            .textContent =
+            data.averageScore + "%";
+
+
+        /* ================================
+           STORE DATA
+        ================================= */
+
+        allSkillPerformance =
+            Array.isArray(data.skillPerformance)
+                ? data.skillPerformance
+                : [];
+
+
+        allWeakTopics =
+            Array.isArray(data.weakTopics)
+                ? data.weakTopics
+                : [];
+
+
+        /* ================================
+           DISPLAY POPUP DATA
+        ================================= */
+
+        displaySkillPerformance(
+            allSkillPerformance
+        );
+
+
+        displayWeakTopics(
+            allWeakTopics
+        );
+
+
+        /* ================================
+           UPDATED TIME
+        ================================= */
+
+        const now = new Date();
+
+        document.getElementById("lastUpdated")
+            .textContent =
+            "Updated " +
+            now.toLocaleTimeString();
+
+
+        message.textContent =
+            "Analytics updated successfully.";
+
+
+    } catch (error) {
+
+        console.error(
+            "Analytics Error:",
+            error
+        );
+
+
+        message.textContent =
+            "Unable to load analytics. Check Tomcat console.";
+
+    } finally {
+
+        refreshButton.disabled = false;
+
+    }
+
+}
+
+
+/* =====================================================
+   GET STATUS
+===================================================== */
+
+function getStatus(score) {
+
+    score = Number(score);
+
+
+    if (score < 50) {
+
+        return "WEAK";
+
+    }
+
+
+    if (score <= 75) {
+
+        return "NEEDS PRACTICE";
+
+    }
+
+
+    return "GOOD";
+
+}
+
+
+/* =====================================================
+   STATUS BADGE
+===================================================== */
+
+function getStatusBadge(score) {
+
+    const status =
+        getStatus(score);
+
+
+    if (status === "WEAK") {
+
+        return '<span class="status-weak">🔴 WEAK</span>';
+
+    }
+
+
+    if (status === "NEEDS PRACTICE") {
+
+        return '<span class="status-practice">🟡 NEEDS PRACTICE</span>';
+
+    }
+
+
+    return '<span class="status-good">🟢 GOOD</span>';
+
+}
+
+
+/* =====================================================
+   DISPLAY SKILL PERFORMANCE
+===================================================== */
+
+function displaySkillPerformance(data) {
+
+    const container =
+        document.getElementById(
+            "skillPerformanceContainer"
+        );
+
+
+    if (!data || data.length === 0) {
+
+        container.innerHTML =
+            '<p class="no-data">No assessment data available.</p>';
+
+        return;
+
+    }
+
+
+    let html = `
+
+        <div class="analytics-table-wrapper">
+
+            <table class="analytics-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Skill</th>
+
+                        <th>Topic</th>
+
+                        <th>Average Score</th>
+
+                        <th>Performance</th>
+
+                        <th>Status</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+    `;
+
+
+    data.forEach((item) => {
+
+        const score =
+            Number(item.score) || 0;
+
+
+        const status =
+            getStatus(score);
+
+
+        /*
+         * Find original index.
+         * This prevents wrong details
+         * after filtering.
+         */
+
+        const originalIndex =
+            allSkillPerformance.indexOf(item);
+
+
+        html += `
+
+            <tr class="performance-row">
+
+                <td>
+
+                    <strong>
+                        ${escapeHtml(item.skill)}
+                    </strong>
+
+                </td>
+
+
+                <td>
+
+                    ${escapeHtml(item.topic)}
+
+                </td>
+
+
+                <td>
+
+                    <strong>
+                        ${score.toFixed(2)}%
+                    </strong>
+
+                </td>
+
+
+                <td>
+
+                    <div class="score-bar">
+
+                        <div class="score-bar-fill"
+                             style="width:${Math.min(score, 100)}%">
+
+                        </div>
+
+                    </div>
+
+                </td>
+
+
+                <td>
+
+                    ${getStatusBadge(score)}
+
+                </td>
+
+            </tr>
+
+        `;
+
+    });
+
+
+    html += `
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    `;
+
+
+    container.innerHTML =
+        html;
+
+}
+
+
+/* =====================================================
+   FILTER SKILL PERFORMANCE
+===================================================== */
+
+function filterSkillPerformance() {
+
+    const search =
+        document.getElementById("skillSearch")
+            .value
+            .toLowerCase()
+            .trim();
+
+
+    const selectedStatus =
+        document.getElementById("statusFilter")
+            .value;
+
+
+    const filtered =
+        allSkillPerformance.filter(item => {
+
+            const skill =
+                String(item.skill || "")
+                    .toLowerCase();
+
+
+            const topic =
+                String(item.topic || "")
+                    .toLowerCase();
+
+
+            const score =
+                Number(item.score) || 0;
+
+
+            const status =
+                getStatus(score);
+
+
+            const matchesSearch =
+                skill.includes(search) ||
+                topic.includes(search);
+
+
+            const matchesStatus =
+                selectedStatus === "ALL" ||
+                status === selectedStatus;
+
+
+            return (
+                matchesSearch &&
+                matchesStatus
+            );
+
+        });
+
+
+    displaySkillPerformance(
+        filtered
+    );
+
+}
+
+
+/* =====================================================
+   RESET FILTERS
+===================================================== */
+
+function resetFilters() {
+
+    document.getElementById("skillSearch")
+        .value = "";
+
+
+    document.getElementById("statusFilter")
+        .value = "ALL";
+
+
+    displaySkillPerformance(
+        allSkillPerformance
+    );
+
+}
+
+
+/* =====================================================
+   DISPLAY WEAK TOPICS
+===================================================== */
+
+function displayWeakTopics(data) {
+
+    const container =
+        document.getElementById(
+            "weakTopicsContainer"
+        );
+
+
+    if (!data || data.length === 0) {
+
+        container.innerHTML =
+            '<p class="no-data">🎉 No weak topics found.</p>';
+
+        return;
+
+    }
+
+
+    let html = `
+
+        <div class="weak-topics-grid">
+
+    `;
+
+
+    data.forEach(item => {
+
+        const score =
+            Number(item.score) || 0;
+
+
+        const status =
+            getStatus(score);
+
+
+        const statusClass =
+            status === "WEAK"
+                ? "weak"
+                : "practice";
+
+
+        html += `
+
+            <div class="weak-topic-card ${statusClass}">
+
+                <div class="weak-topic-top">
+
+                    <span>
+                        ${escapeHtml(item.skill)}
+                    </span>
+
+                    <span class="weak-score">
+                        ${score.toFixed(2)}%
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    ${escapeHtml(item.topic)}
+                </h3>
+
+
+                <p>
+                    ${status}
+                </p>
+
+
+                <div class="topic-score-bar">
+
+                    <div class="topic-score-fill"
+                         style="width:${Math.min(score, 100)}%">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        `;
+
+    });
+
+
+    html += `
+
+        </div>
+
+    `;
+
+
+    container.innerHTML =
+        html;
+
+}
+
+
+/* =====================================================
+   SHOW SKILL PERFORMANCE POPUP
+===================================================== */
+
+function showSkillPerformance() {
+
+    document.getElementById(
+        "performanceModal"
+    ).classList.add("show");
+
+
+    document.body.classList.add(
+        "modal-open"
+    );
+
+
+    displaySkillPerformance(
+        allSkillPerformance
+    );
+
+}
+
+
+/* =====================================================
+   CLOSE SKILL PERFORMANCE POPUP
+===================================================== */
+
+function closePerformanceModal() {
+
+    document.getElementById(
+        "performanceModal"
+    ).classList.remove("show");
+
+
+    document.body.classList.remove(
+        "modal-open"
+    );
+
+}
+
+
+/* =====================================================
+   SHOW WEAK TOPICS POPUP
+===================================================== */
+
+function showWeakTopics() {
+
+    document.getElementById(
+        "weakTopicsModal"
+    ).classList.add("show");
+
+
+    document.body.classList.add(
+        "modal-open"
+    );
+
+
+    displayWeakTopics(
+        allWeakTopics
+    );
+
+}
+
+
+/* =====================================================
+   CLOSE WEAK TOPICS POPUP
+===================================================== */
+
+function closeWeakTopicsModal() {
+
+    document.getElementById(
+        "weakTopicsModal"
+    ).classList.remove("show");
+
+
+    document.body.classList.remove(
+        "modal-open"
+    );
+
+}
+
+
+/* =====================================================
+   CLOSE PERFORMANCE POPUP BY OUTSIDE CLICK
+===================================================== */
+
+function closePopup(event) {
+
+    if (
+        event.target ===
+        document.getElementById("performanceModal")
+    ) {
+
+        closePerformanceModal();
+
+    }
+
+}
+
+
+/* =====================================================
+   CLOSE WEAK TOPICS POPUP BY OUTSIDE CLICK
+===================================================== */
+
+function closeWeakPopup(event) {
+
+    if (
+        event.target ===
+        document.getElementById("weakTopicsModal")
+    ) {
+
+        closeWeakTopicsModal();
+
+    }
+
+}
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHtml(value) {
+
+    if (
+        value === null ||
+        value === undefined
+    ) {
+
+        return "";
+
+    }
+
+
+    return String(value)
+
+        .replace(/&/g, "&amp;")
+
+        .replace(/</g, "&lt;")
+
+        .replace(/>/g, "&gt;")
+
+        .replace(/"/g, "&quot;")
+
+        .replace(/'/g, "&#039;");
+
+}
+
+
+/* =====================================================
+   LOGOUT
+===================================================== */
+
+function logoutAdmin() {
+
+    sessionStorage.clear();
+
+    window.location.href =
+        "index.html";
+
+}
+
+
+/* =====================================================
+   ESC KEY
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "Escape"
+        ) {
+
+            closePerformanceModal();
+            closeWeakTopicsModal();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   LOAD ANALYTICS
+===================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        loadAnalytics();
+
+    }
+);
+
+</script>
+
+</body>
+
+</html>
