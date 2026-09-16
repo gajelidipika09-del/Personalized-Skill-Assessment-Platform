@@ -312,6 +312,10 @@ Possible future improvements include:
 
 Computer Science & Engineering Student
 
+**Nandini Vallal**
+
+Computer Science & Engineering Student
+
 ### Technologies
 
 `Java` `JDBC` `Servlets` `MySQL` `HTML` `CSS` `JavaScript` `Tomcat`
